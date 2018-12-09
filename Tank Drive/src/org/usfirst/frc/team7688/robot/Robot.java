@@ -8,6 +8,8 @@
 package org.usfirst.frc.team7688.robot;
 
 
+import org.usfirst.frc.team7688.subsystems.Drivetrain;
+
 // import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -27,26 +29,32 @@ public class Robot extends IterativeRobot {
 	private Joystick x_controller;
 	//private WPI_TalonSRX m_frontLeft;
 	//private WPI_TalonSRX m_frontRight;
-	private Spark m_left;
-	private Spark m_right;
+	// private Spark m_left;
+	// private Spark m_right;
 	//private SpeedControllerGroup m_left;
 	//private SpeedControllerGroup m_right;
 	
 	private Timer m_timer = new Timer(); 
 	
+	public static Drivetrain drivetrain = null;
+	public static OI oi;
 	@Override
 	public void robotInit() {
 		
 //		m_left = new WPI_TalonSRX(1); // Testing CAN1
 //		m_right = new WPI_TalonSRX(2); // Testing CAN2
-		m_left= new Spark(RobotMap.DRIVETRAIN_LEFT_FRONT);
-		m_right = new Spark(RobotMap.DRIVETRAIN_RIGHT_FRONT);
+		// m_left= new Spark(RobotMap.DRIVETRAIN_LEFT_FRONT);
+		// m_right = new Spark(RobotMap.DRIVETRAIN_RIGHT_FRONT);
 //		m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
 //		m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
 		
-		m_Robot = new DifferentialDrive(m_left, m_right);
+		// m_Robot = new DifferentialDrive(m_left, m_right);
  
 		x_controller = new Joystick(0);
+		
+		drivetrain = new Drivetrain();
+		
+		oi = new OI();
 	}
 
 	@Override
