@@ -9,6 +9,7 @@ package org.usfirst.frc.team7688.robot;
 
 
 import org.usfirst.frc.team7688.subsystems.Drivetrain;
+import org.usfirst.frc.team7688.subsystems.Pneumatics;
 
 // import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -35,7 +36,7 @@ public class Robot extends IterativeRobot {
 	//private SpeedControllerGroup m_right;
 	
 	private Timer m_timer = new Timer(); 
-	
+	public static Pneumatics pn = null;
 	public static Drivetrain drivetrain = null;
 	public static OI oi;
 	@Override
@@ -53,6 +54,7 @@ public class Robot extends IterativeRobot {
 		x_controller = new Joystick(0);
 		
 		drivetrain = new Drivetrain();
+		pn = new Pneumatics();
 		
 		oi = new OI();
 	}

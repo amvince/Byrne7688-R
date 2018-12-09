@@ -28,4 +28,8 @@ public class Pneumatics {
 	public void off() {
 		ds.set(DoubleSolenoid.Value.kOff);
 	}
+	
+	public void initDefaultCommand() {
+		
+	}
 }
