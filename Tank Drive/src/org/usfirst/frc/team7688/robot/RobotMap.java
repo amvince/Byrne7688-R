@@ -11,7 +11,10 @@ public class RobotMap {
 	public static final int OI_LEFT_STICK_Y = 5;
 	public static final int OI_RIGHT_STICK_Y = 1;
 	
-	// Compressor Constants
-	
+	// Pneumatics Constants
+	public static final int PN_COMPRESSOR_A = 0;
+	public static final int PN_SOLENOID_AF = 1;
+	public static final int PN_SOLENOID_AR = 2;
+
 
 }
