@@ -2,8 +2,6 @@ package org.usfirst.frc.team7688.subsystems;
 
 import org.usfirst.frc.team7688.commands.DriveTank;
 import org.usfirst.frc.team7688.robot.RobotMap;
-
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
