@@ -29,6 +29,11 @@ public class Drivetrain extends Subsystem {
 	public void tankDrive(double leftSpeed, double rightSpeed) {
 		m_drive.tankDrive(leftSpeed, rightSpeed);
 	}
+	
+	public void stop() {
+		m_drive.tankDrive(0, 0);
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
