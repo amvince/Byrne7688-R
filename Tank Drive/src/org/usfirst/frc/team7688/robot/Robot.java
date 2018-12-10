@@ -16,7 +16,6 @@ import org.usfirst.frc.team7688.subsystems.Pneumatics;
 import org.usfirst.frc.team7688.subsystems.SampleSystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -50,6 +49,9 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new SampleCommand());
 		chooser.addObject("Experimental Autonomous", new ExperimentCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
+		SmartDashboard.putData(drivetrain);
+		SmartDashboard.putData(pneumatics);
+		SmartDashboard.putData(experimental);
 		
 	}
 
@@ -79,5 +81,8 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 	}
 	
+	@Override
+	public void testPeriodic() {
+	}
 	
 }
