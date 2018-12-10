@@ -8,17 +8,22 @@
 package org.usfirst.frc.team7688.robot;
 
 
+import org.usfirst.frc.team7688.commands.SampleCommand;
 import org.usfirst.frc.team7688.subsystems.Drivetrain;
 import org.usfirst.frc.team7688.subsystems.Pneumatics;
+import org.usfirst.frc.team7688.subsystems.SampleSystem;
 
 // import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Spark;
+// import edu.wpi.first.wpilibj.Spark;
 // import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This is a demo program showing the use of the RobotDrive class, specifically
@@ -35,36 +40,31 @@ public class Robot extends IterativeRobot {
 	//private SpeedControllerGroup m_left;
 	//private SpeedControllerGroup m_right;
 	
+	public static final SampleSystem sampleSystem = new SampleSystem();
+	SendableChooser<Command> chooser = new SendableChooser<>();
 	private Timer m_timer = new Timer(); 
 	public static Pneumatics pneumatics = null;
 	public static Drivetrain drivetrain = null;
 	public static OI oi;
+	
 	@Override
 	public void robotInit() {
-		
-//		m_left = new WPI_TalonSRX(1); // Testing CAN1
-//		m_right = new WPI_TalonSRX(2); // Testing CAN2
-		// m_left= new Spark(RobotMap.DRIVETRAIN_LEFT_FRONT);
-		// m_right = new Spark(RobotMap.DRIVETRAIN_RIGHT_FRONT);
-//		m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
-//		m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
-		
-		// m_Robot = new DifferentialDrive(m_left, m_right);
  
-		x_controller = new Joystick(0);
+		// x_controller = new Joystick(0);
 		
 		drivetrain = new Drivetrain();
 		pneumatics = new Pneumatics();
 		
 		oi = new OI();
+		
+		chooser.addDefault("Default Auto", new SampleCommand());
+		SmartDashboard.putData("Auto Mode", chooser);
+		
 	}
 
 	@Override
 	public void teleopPeriodic() {
-		double x_left= x_controller.getRawAxis(5);
-		double x_right = x_controller.getRawAxis(1);
-		m_Robot.tankDrive(x_left,  x_right);
-		System.out.println("Left: " + x_left + " Right: " + x_right);
+		
 	}
 	
 	@Override
@@ -77,7 +77,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		// Drive for 2 seconds
 		if (m_timer.get() < 2.0) {
-			m_Robot.arcadeDrive(0.5, 0.0); // drive forwards half speed
+			m_Robot.tankDrive(0.5, 0.0); // drive forwards half speed
 		} else {
 			m_Robot.stopMotor(); // stop robot
 		}
