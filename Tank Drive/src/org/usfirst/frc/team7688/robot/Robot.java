@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.Joystick;
 // import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -42,6 +43,7 @@ public class Robot extends IterativeRobot {
 	
 	public static final SampleSystem sampleSystem = new SampleSystem();
 	SendableChooser<Command> chooser = new SendableChooser<>();
+	Command autonomousCommand;
 	private Timer m_timer = new Timer(); 
 	public static Pneumatics pneumatics = null;
 	public static Drivetrain drivetrain = null;
@@ -63,14 +65,25 @@ public class Robot extends IterativeRobot {
 	}
 
 	@Override
+	public void teleopInit() {
+		if (autonomousCommand != null)
+			autonomousCommand.cancel();
+	}
+	@Override
 	public void teleopPeriodic() {
+		Scheduler.getInstance().run();
+		
 		
 	}
 	
 	@Override
 	public void autonomousInit() {
+		
 		m_timer.reset();
 		m_timer.start();
+		autonomousCommand = chooser.getSelected();
+		if (autonomousCommand != null)
+			autonomousCommand.start();
 	}
 	
 	@Override
@@ -81,6 +94,7 @@ public class Robot extends IterativeRobot {
 		} else {
 			m_Robot.stopMotor(); // stop robot
 		}
+		Scheduler.getInstance().run();
 	}
 	
 	
