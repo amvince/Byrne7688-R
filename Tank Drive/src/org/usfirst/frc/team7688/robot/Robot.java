@@ -8,8 +8,10 @@
 package org.usfirst.frc.team7688.robot;
 
 
+import org.usfirst.frc.team7688.commands.ExperimentCommand;
 import org.usfirst.frc.team7688.commands.SampleCommand;
 import org.usfirst.frc.team7688.subsystems.Drivetrain;
+import org.usfirst.frc.team7688.subsystems.ExperimentalSystem;
 import org.usfirst.frc.team7688.subsystems.Pneumatics;
 import org.usfirst.frc.team7688.subsystems.SampleSystem;
 
@@ -33,6 +35,7 @@ public class Robot extends IterativeRobot {
 	
 	public static Pneumatics pneumatics = null;
 	public static Drivetrain drivetrain = null;
+	public static ExperimentalSystem experimental = null;
 	public static OI oi;
 	
 	@Override
@@ -40,10 +43,12 @@ public class Robot extends IterativeRobot {
  		
 		drivetrain = new Drivetrain();
 		pneumatics = new Pneumatics();
+		experimental = new ExperimentalSystem();
 		
 		oi = new OI();
 		
 		chooser.addDefault("Default Auto", new SampleCommand());
+		chooser.addObject("Experimental Autonomous", new ExperimentCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
 		
 	}
