@@ -10,6 +10,10 @@ public class RobotMap {
 	public static final int OI_DRIVER_CONTROLLER = 0;
 	public static final int OI_LEFT_STICK_Y = 5;
 	public static final int OI_RIGHT_STICK_Y = 1;
+	public static final int OI_BUTTON_X = 3;
+	public static final int OI_BUTTON_Y = 2;
+	public static final int OI_BUTTON_A = 1;
+	public static final int OI_BUTTON_B = 4;
 	
 	// Pneumatics Constants
 	public static final int PN_COMPRESSOR_A = 0;

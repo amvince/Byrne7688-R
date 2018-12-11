@@ -25,7 +25,7 @@ public class DriveTank extends Command {
     	double leftSpeed = Robot.oi.joystick.getRawAxis(RobotMap.OI_LEFT_STICK_Y);
     	double rightSpeed = Robot.oi.joystick.getRawAxis(RobotMap.OI_RIGHT_STICK_Y);
     	
-    	if (Robot.oi.joystick.getRawButton(3)) {
+    	if (Robot.oi.joystick.getRawButton(RobotMap.OI_BUTTON_Y)) {
     		Robot.drivetrain.tankDrive(leftSpeed*0.5, rightSpeed*0.5);
     	} else {
     		Robot.drivetrain.tankDrive(leftSpeed, rightSpeed);

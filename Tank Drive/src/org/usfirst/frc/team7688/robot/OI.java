@@ -45,11 +45,11 @@ public class OI {
 
 	public boolean getJoystickButtonBlue() {
 		// TODO Auto-generated method stub
-		boolean buttonValue = joystick.getRawButton(2);
+		boolean buttonValue = joystick.getRawButton(RobotMap.OI_BUTTON_X);
 		return buttonValue;
 	}
 	public Boolean getJoystickButtonRed() {
-		boolean buttonValue = joystick.getRawButton(1);
+		boolean buttonValue = joystick.getRawButton(RobotMap.OI_BUTTON_B);
 		return buttonValue;
 	}
 }
