@@ -27,6 +27,9 @@ public class Drivetrain extends Subsystem {
 	public void tankDrive(double leftSpeed, double rightSpeed) {
 		m_drive.tankDrive(leftSpeed, rightSpeed);
 	}
+	public void arcadeDrive(double xSpeed, double zRotation) {
+		m_drive.arcadeDrive(xSpeed, zRotation);
+	}
 	
 	public void stop() {
 		m_drive.tankDrive(0, 0);

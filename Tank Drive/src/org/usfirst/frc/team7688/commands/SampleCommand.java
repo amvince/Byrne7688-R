@@ -27,7 +27,7 @@ public class SampleCommand extends Command {
     protected void execute() {
 		// Drive for 2 seconds
 		if (m_timer.get() < 2.0) {
-			Robot.drivetrain.tankDrive(0.5, 0.0); // drive forwards half speed
+			Robot.drivetrain.arcadeDrive(0.5,0); // drive forwards half speed
 		} else {
 			Robot.drivetrain.stop(); // stop robot
 		}
