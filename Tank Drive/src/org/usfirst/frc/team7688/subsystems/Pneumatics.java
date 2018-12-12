@@ -37,7 +37,7 @@ public class Pneumatics extends Subsystem{
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new SolenoidDefault());
+	//	setDefaultCommand(new SolenoidDefault());
 		
 	}
 }

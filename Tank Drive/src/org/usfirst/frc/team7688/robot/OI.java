@@ -8,6 +8,8 @@
 package org.usfirst.frc.team7688.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,13 +45,17 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public Joystick joystick = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
 
+	public Button buttonX = new JoystickButton(joystick, RobotMap.OI_BUTTON_X);
+	public Button buttonY = new JoystickButton(joystick, RobotMap.OI_BUTTON_Y);
+	public Button buttonA = new JoystickButton(joystick, RobotMap.OI_BUTTON_A);
+	public Button buttonB = new JoystickButton(joystick, RobotMap.OI_BUTTON_B);
+	
 	public boolean getJoystickButtonX() {
-		// TODO Auto-generated method stub
-		boolean buttonValue = joystick.getRawButton(RobotMap.OI_BUTTON_X);
-		return buttonValue;
+		boolean buttonBool = joystick.getRawButton(RobotMap.OI_BUTTON_X);
+		return buttonBool;
 	}
 	public Boolean getJoystickButtonB() {
-		boolean buttonValue = joystick.getRawButton(RobotMap.OI_BUTTON_B);
-		return buttonValue;
+		boolean buttonBool = joystick.getRawButton(RobotMap.OI_BUTTON_B);
+		return buttonBool;
 	}
 }

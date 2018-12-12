@@ -33,7 +33,6 @@ public class Robot extends IterativeRobot {
 	public static final SampleSystem sampleSystem = new SampleSystem();
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	Command autonomousCommand;
-	Command teleOpCommand;
 	
 	
 	public static Pneumatics pneumatics = null;
@@ -57,9 +56,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(Scheduler.getInstance());
 		SmartDashboard.putData("Drivetrain Test", drivetrain);
 		SmartDashboard.putData("Pneumatics Test", pneumatics);
-		
-		teleOpCommand = new DriveTank();
-		
+				
 	}
 
 	@Override
@@ -67,8 +64,6 @@ public class Robot extends IterativeRobot {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 		
-		teleOpCommand.start();
-
 	}
 	@Override
 	public void teleopPeriodic() {
@@ -78,9 +73,6 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void autonomousInit() {
-		
-		if (teleOpCommand != null)
-			teleOpCommand.cancel();
 		
 		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null)
