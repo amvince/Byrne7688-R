@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  */
 public class ExperimentCommand extends Command {
 
-	private Timer m_timer = null;
-	private Gyro gyro;
-	private double kp = 0.03;
+//	private Timer m_timer = null;
+//	private Gyro gyro;
+//	private double kp = 0.03;
     public ExperimentCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -23,8 +23,8 @@ public class ExperimentCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		m_timer.reset();
-		m_timer.start();
+	//	m_timer.reset();
+	//	m_timer.start();
 		
 	//	gyro = new AnalogGyro(1);
 		
@@ -50,7 +50,7 @@ public class ExperimentCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivetrain.stop();
+    	// Robot.drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same

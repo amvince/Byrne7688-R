@@ -24,12 +24,13 @@ public class DriveTank extends Command {
     protected void execute() {
     	double leftSpeed = Robot.oi.joystick.getRawAxis(RobotMap.OI_LEFT_STICK_Y);
     	double rightSpeed = Robot.oi.joystick.getRawAxis(RobotMap.OI_RIGHT_STICK_Y);
-    	
+    	double zRotate = Robot.oi.joystick.getRawAxis(RobotMap.OI_LEFT_STICK_X);
     	if (Robot.oi.joystick.getRawButton(RobotMap.OI_BUTTON_Y)) {
     		Robot.drivetrain.tankDrive(leftSpeed*0.5, rightSpeed*0.5);
     	} else {
     		Robot.drivetrain.tankDrive(leftSpeed, rightSpeed);
     	}
+    	System.out.println("Rotate: " + zRotate);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -29,6 +29,11 @@ public class Pneumatics extends Subsystem{
 	
 	public static void off() {
 		ds.set(DoubleSolenoid.Value.kOff);
+		c.stop();
+	}
+	
+	public static void on() {
+		c.start();
 	}
 	
 	public void initDefaultCommand() {

@@ -8,6 +8,8 @@
 package org.usfirst.frc.team7688.robot;
 
 
+
+import org.usfirst.frc.team7688.commands.DriveTank;
 import org.usfirst.frc.team7688.commands.ExperimentCommand;
 import org.usfirst.frc.team7688.commands.SampleCommand;
 import org.usfirst.frc.team7688.subsystems.Drivetrain;
@@ -31,6 +33,7 @@ public class Robot extends IterativeRobot {
 	public static final SampleSystem sampleSystem = new SampleSystem();
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	Command autonomousCommand;
+	Command teleOpCommand;
 	
 	
 	public static Pneumatics pneumatics = null;
@@ -50,9 +53,7 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new SampleCommand());
 		chooser.addObject("Experimental Autonomous", new ExperimentCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
-		SmartDashboard.putData(drivetrain);
-		SmartDashboard.putData(pneumatics);
-		SmartDashboard.putData(experimental);
+		Pneumatics.off();
 		
 	}
 
@@ -60,6 +61,10 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
+		teleOpCommand = new DriveTank();
+		teleOpCommand.start();
+
 	}
 	@Override
 	public void teleopPeriodic() {
@@ -70,7 +75,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		
-
+		if (teleOpCommand != null)
+			teleOpCommand.cancel();
+		
 		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null)
 			autonomousCommand.start();
