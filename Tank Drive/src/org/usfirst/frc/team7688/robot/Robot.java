@@ -9,7 +9,6 @@ package org.usfirst.frc.team7688.robot;
 
 
 
-import org.usfirst.frc.team7688.commands.DriveTank;
 import org.usfirst.frc.team7688.commands.ExperimentCommand;
 import org.usfirst.frc.team7688.commands.SampleCommand;
 import org.usfirst.frc.team7688.subsystems.Drivetrain;
@@ -20,7 +19,6 @@ import org.usfirst.frc.team7688.subsystems.SampleSystem;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -54,6 +52,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Autonomous Mode", chooser);
 		
 		SmartDashboard.putData(Scheduler.getInstance());
+		SmartDashboard.putData("Autonomous", new SampleCommand());
 		SmartDashboard.putData("Drivetrain Test", drivetrain);
 		SmartDashboard.putData("Pneumatics Test", pneumatics);
 				
