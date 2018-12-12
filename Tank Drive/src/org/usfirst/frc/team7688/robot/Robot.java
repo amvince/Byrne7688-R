@@ -52,8 +52,13 @@ public class Robot extends IterativeRobot {
 		
 		chooser.addDefault("Default Auto", new SampleCommand());
 		chooser.addObject("Experimental Autonomous", new ExperimentCommand());
-		SmartDashboard.putData("Auto Mode", chooser);
-		Pneumatics.off();
+		SmartDashboard.putData("Autonomous Mode", chooser);
+		
+		SmartDashboard.putData(Scheduler.getInstance());
+		SmartDashboard.putData("Drivetrain Test", drivetrain);
+		SmartDashboard.putData("Pneumatics Test", pneumatics);
+		
+		teleOpCommand = new DriveTank();
 		
 	}
 
@@ -62,7 +67,6 @@ public class Robot extends IterativeRobot {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 		
-		teleOpCommand = new DriveTank();
 		teleOpCommand.start();
 
 	}
@@ -91,7 +95,6 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void testPeriodic() {
-		LiveWindow.run();
 		
 	}
 	

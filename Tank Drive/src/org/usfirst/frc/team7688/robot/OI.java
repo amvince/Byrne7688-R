@@ -43,12 +43,12 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public Joystick joystick = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
 
-	public boolean getJoystickButtonBlue() {
+	public boolean getJoystickButtonX() {
 		// TODO Auto-generated method stub
 		boolean buttonValue = joystick.getRawButton(RobotMap.OI_BUTTON_X);
 		return buttonValue;
 	}
-	public Boolean getJoystickButtonRed() {
+	public Boolean getJoystickButtonB() {
 		boolean buttonValue = joystick.getRawButton(RobotMap.OI_BUTTON_B);
 		return buttonValue;
 	}

@@ -29,7 +29,7 @@ public class Pneumatics extends Subsystem{
 	
 	public static void off() {
 		ds.set(DoubleSolenoid.Value.kOff);
-		c.stop();
+		c.stop();  // turning compressor off just because.
 	}
 	
 	public static void on() {

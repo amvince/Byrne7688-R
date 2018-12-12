@@ -32,11 +32,11 @@ public class SolenoidDefault extends Command {
     	} else {
     		Pneumatics.off();
     	} */
-    	control = Robot.oi.getJoystickButtonBlue();
+    	control = Robot.oi.getJoystickButtonX();
     	if (control = true) { Pneumatics.extend();
     	} else Pneumatics.off();
     	
-    	control = Robot.oi.getJoystickButtonRed();
+    	control = Robot.oi.getJoystickButtonB();
     	if (control = true)  {Pneumatics.retract();
     	} else Pneumatics.off();
     	
