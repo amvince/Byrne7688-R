@@ -21,23 +21,25 @@ public class Pneumatics extends Subsystem{
 	
 	public static void extend () {
 		ds.set(DoubleSolenoid.Value.kForward);
+		System.out.println("Solenoid Extend");
 	}
 	
 	public static void retract() {
 		ds.set(DoubleSolenoid.Value.kReverse);
+		System.out.println("Solenoid Retract");
 	}
 	
 	public static void off() {
 		ds.set(DoubleSolenoid.Value.kOff);
-		c.stop();  // turning compressor off just because.
+		System.out.println("Solenoid Off");
+		// c.stop();  // turning compressor off just because.
 	}
 	
 	public static void on() {
-		c.start();
 	}
 	
 	public void initDefaultCommand() {
-	//	setDefaultCommand(new SolenoidDefault());
+		setDefaultCommand(new SolenoidDefault());
 		
 	}
 }

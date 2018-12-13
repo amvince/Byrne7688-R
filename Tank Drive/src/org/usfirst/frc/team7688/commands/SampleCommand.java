@@ -26,11 +26,11 @@ public class SampleCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 		// Drive for 2 seconds
-		if (m_timer.get() < 2.0) {
+/*		if (m_timer.get() < 2.0) {
 			Robot.drivetrain.arcadeDrive(0.5,0); // drive forwards half speed
 		} else {
 			Robot.drivetrain.stop(); // stop robot
-		}
+		} */
     }
 
     // Make this return true when this Command no longer needs to run execute()

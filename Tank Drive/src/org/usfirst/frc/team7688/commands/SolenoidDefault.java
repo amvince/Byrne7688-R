@@ -31,14 +31,16 @@ public class SolenoidDefault extends Command {
     		Pneumatics.extend();
     	} else {
     		Pneumatics.off();
-    	} */
+    	} 
     	control = Robot.oi.getJoystickButtonX();
     	if (control = true) { Pneumatics.extend();
+    	System.out.println("X Button");
     	} else Pneumatics.off();
     	
     	control = Robot.oi.getJoystickButtonB();
     	if (control = true)  {Pneumatics.retract();
-    	} else Pneumatics.off();
+    	System.out.println("B Button");
+    	} else Pneumatics.off(); */
     	
     }
 
@@ -49,7 +51,7 @@ public class SolenoidDefault extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Pneumatics.off();
+    	// Pneumatics.off();
     }
 
     // Called when another command which requires one or more of the same

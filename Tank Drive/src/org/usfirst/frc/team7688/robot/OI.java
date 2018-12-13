@@ -7,6 +7,10 @@
 
 package org.usfirst.frc.team7688.robot;
 
+import org.usfirst.frc.team7688.commands.SolenoidExtend;
+import org.usfirst.frc.team7688.commands.SolenoidOff;
+import org.usfirst.frc.team7688.commands.SolenoidRetract;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -49,6 +53,12 @@ public class OI {
 	public Button buttonY = new JoystickButton(joystick, RobotMap.OI_BUTTON_Y);
 	public Button buttonA = new JoystickButton(joystick, RobotMap.OI_BUTTON_A);
 	public Button buttonB = new JoystickButton(joystick, RobotMap.OI_BUTTON_B);
+	
+	public OI() {
+		buttonX.whenPressed(new SolenoidExtend());
+		buttonB.whenPressed(new SolenoidRetract());
+		buttonA.whenPressed(new SolenoidOff());
+	}
 	
 	public boolean getJoystickButtonX() {
 		boolean buttonBool = joystick.getRawButton(RobotMap.OI_BUTTON_X);
