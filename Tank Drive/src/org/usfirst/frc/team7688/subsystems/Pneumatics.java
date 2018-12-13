@@ -1,8 +1,6 @@
 package org.usfirst.frc.team7688.subsystems;
 
-import org.usfirst.frc.team7688.commands.SolenoidDefault;
 import org.usfirst.frc.team7688.robot.RobotMap;
-
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -39,7 +37,6 @@ public class Pneumatics extends Subsystem{
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new SolenoidDefault());
 		
 	}
 }
