@@ -1,6 +1,7 @@
 package org.usfirst.frc.team7688.commands;
 
 import org.usfirst.frc.team7688.robot.Robot;
+import org.usfirst.frc.team7688.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Timer;
@@ -27,6 +28,7 @@ public class ExperimentCommand extends Command {
 		// m_timer.start();
 		
 		gyro = new AnalogGyro(1);
+		Pneumatics.off();
 		
 		
     }
