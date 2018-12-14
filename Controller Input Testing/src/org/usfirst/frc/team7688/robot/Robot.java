@@ -54,7 +54,13 @@ public class Robot extends IterativeRobot
 	@Override
 	public void teleopPeriodic() 
 	{
-		System.out.println(m_stick.getTrigger());
+		for(int i = 1; i < 15; i++)
+		{
+			if(m_stick.getRawButton(i))
+			{
+				System.out.println(i);
+			}
+		}
 	}
 
 	

@@ -3,6 +3,7 @@ package org.usfirst.frc.team7688.subsystems;
 import org.usfirst.frc.team7688.commands.ExperimentCommand;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
  *
@@ -14,7 +15,7 @@ public class ExperimentalSystem extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-      //  setDefaultCommand(new ExperimentCommand());
+        setDefaultCommand(new ExperimentCommand());
     }
 }
 

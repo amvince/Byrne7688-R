@@ -72,8 +72,12 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void autonomousInit() {
+		// Uncomment this for normal Autonomous Operation
+	//	autonomousCommand = chooser.getSelected();
 		
-		autonomousCommand = chooser.getSelected();
+		// Uncomment this for trying out the "ExperimentCommand" testing.
+		autonomousCommand = new ExperimentCommand();
+		
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
