@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  */
 public class ExperimentCommand extends Command {
 
-	// private Timer m_timer = null;
+	private Timer m_timer = null;
 	private Gyro gyro;
 //	private double kp = 0.03;
     public ExperimentCommand() {
@@ -24,11 +24,11 @@ public class ExperimentCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		// m_timer.reset();
-		// m_timer.start();
+		m_timer.reset();
+		m_timer.start();
 		
-		gyro = new AnalogGyro(1);
-		Pneumatics.off();
+		gyro = new AnalogGyro(0);
+		Pneumatics.compOff();
 		
 		
     }
@@ -38,8 +38,8 @@ public class ExperimentCommand extends Command {
 		// Gyroscope Drive for 2 seconds
     	gyro.reset();
 		// if (m_timer.get() < 2.0) {
-			double angle = gyro.getAngle();
-			System.out.println(angle);
+			double angle = Math.round(gyro.getAngle());
+			System.out.println("Measured Angle: "+angle);
 		//	Robot.drivetrain.arcadeDrive(0.5,-angle*kp); // drive forwards half speed
 		// } else {
 		//	Robot.drivetrain.stop(); // stop robot

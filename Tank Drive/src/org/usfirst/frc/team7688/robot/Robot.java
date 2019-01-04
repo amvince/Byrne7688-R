@@ -15,6 +15,7 @@ import org.usfirst.frc.team7688.subsystems.Drivetrain;
 import org.usfirst.frc.team7688.subsystems.ExperimentalSystem;
 import org.usfirst.frc.team7688.subsystems.Pneumatics;
 import org.usfirst.frc.team7688.subsystems.SampleSystem;
+import org.usfirst.frc.team7688.utilities.MPU6050;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -37,6 +38,7 @@ public class Robot extends IterativeRobot {
 	public static Drivetrain drivetrain = null;
 	public static ExperimentalSystem experimental = null;
 	public static OI oi;
+	 public MPU6050 gyro = new MPU6050();
 	
 	@Override
 	public void robotInit() {
@@ -72,6 +74,8 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void autonomousInit() {
+		Pneumatics.compOff();
+		
 		// Uncomment this for normal Autonomous Operation
 	//	autonomousCommand = chooser.getSelected();
 		
@@ -90,7 +94,7 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void testPeriodic() {
-		
+		System.out.println("X Angle: " + gyro.getAngle(MPU6050.Axis.X));
 	}
 	
 }

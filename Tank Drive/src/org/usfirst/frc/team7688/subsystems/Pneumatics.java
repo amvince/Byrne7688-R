@@ -15,6 +15,7 @@ public class Pneumatics extends Subsystem{
 		c = new Compressor(RobotMap.PN_COMPRESSOR_A);
 		//s = new Solenoid(RobotMap.PN_SOLENOID_AF);
 		ds = new DoubleSolenoid(RobotMap.PN_SOLENOID_AF, RobotMap.PN_SOLENOID_AR);
+		
 	}
 	
 	public static void extend () {
@@ -31,6 +32,10 @@ public class Pneumatics extends Subsystem{
 		ds.set(DoubleSolenoid.Value.kOff);
 		System.out.println("Solenoid Off");
 		// c.stop();  // turning compressor off just because.
+	}
+	
+	public static void compOff() {
+		c.stop();
 	}
 	
 	public static void on() {
